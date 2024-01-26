@@ -1,0 +1,288 @@
+Fork [0] created
+Fork [1] created
+Fork [2] created
+Fork [3] created
+Thread [0] created
+1 Philo [1] has taken a fork
+1 Philo [1] has taken a fork
+1 Philo [1] is eating
+Thread [1] created
+6 Philo [3] has taken a fork
+6 Philo [3] has taken a fork
+6 Philo [3] is eating
+Thread [2] created
+Thread [3] created
+501 Philo [1] is sleeping
+500 Philo [2] has taken a fork
+506 Philo [3] is sleeping
+499 Philo [4] has taken a fork
+499 Philo [4] has taken a fork
+499 Philo [4] is eating
+513 Philo [2] has taken a fork
+513 Philo [2] is eating
+1001 Philo [1] is thinking
+1006 Philo [3] is thinking
+1006 Philo [3] has taken a fork
+999 Philo [4] is sleeping
+1013 Philo [2] is sleeping
+1014 Philo [1] has taken a fork
+1014 Philo [1] has taken a fork
+1012 Philo [3] has taken a fork
+1012 Philo [3] is eating
+1014 Philo [1] is eating
+1499 Philo [4] is thinking
+1513 Philo [2] is thinking
+1514 Philo [1] is sleeping
+1513 Philo [2] has taken a fork
+1513 Philo [2] has taken a fork
+1513 Philo [2] is eating
+1512 Philo [3] is sleeping
+1505 Philo [4] has taken a fork
+1505 Philo [4] has taken a fork
+1505 Philo [4] is eating
+2014 Philo [1] is thinking
+2013 Philo [2] is sleeping
+2005 Philo [4] is sleeping
+2012 Philo [3] is thinking
+2014 Philo [1] has taken a fork
+2014 Philo [1] has taken a fork
+2014 Philo [1] is eating
+2012 Philo [3] has taken a fork
+2012 Philo [3] has taken a fork
+2012 Philo [3] is eating
+2505 Philo [4] is thinking
+2514 Philo [1] is sleeping
+2512 Philo [3] is sleeping
+2505 Philo [4] has taken a fork
+2505 Philo [4] has taken a fork
+2513 Philo [2] is thinking
+2505 Philo [4] is eating
+2513 Philo [2] has taken a fork
+2513 Philo [2] has taken a fork
+2513 Philo [2] is eating
+3012 Philo [3] is thinking
+3013 Philo [2] is sleeping
+3005 Philo [4] is sleeping
+3012 Philo [3] has taken a fork
+3012 Philo [3] has taken a fork
+3012 Philo [3] is eating
+3014 Philo [1] is thinking
+3014 Philo [1] has taken a fork
+3014 Philo [1] has taken a fork
+3014 Philo [1] is eating
+3505 Philo [4] is thinking
+3512 Philo [3] is sleeping
+3514 Philo [1] is sleeping
+3505 Philo [4] has taken a fork
+3513 Philo [2] is thinking
+3505 Philo [4] has taken a fork
+3505 Philo [4] is eating
+3513 Philo [2] has taken a fork
+3513 Philo [2] has taken a fork
+3513 Philo [2] is eating
+4012 Philo [3] is thinking
+4013 Philo [2] is sleeping
+4012 Philo [3] has taken a fork
+4005 Philo [4] is sleeping
+4012 Philo [3] has taken a fork
+4012 Philo [3] is eating
+4014 Philo [1] is thinking
+4014 Philo [1] has taken a fork
+4014 Philo [1] has taken a fork
+4014 Philo [1] is eating
+4513 Philo [2] is thinking
+4514 Philo [1] is sleeping
+4513 Philo [2] has taken a fork
+4513 Philo [2] has taken a fork
+4505 Philo [4] is thinking
+4513 Philo [2] is eating
+4505 Philo [4] has taken a fork
+4505 Philo [4] has taken a fork
+4505 Philo [4] is eating
+4512 Philo [3] is sleeping
+5014 Philo [1] is thinking
+5013 Philo [2] is sleeping
+5005 Philo [4] is sleeping
+5014 Philo [1] has taken a fork
+5012 Philo [3] is thinking
+5014 Philo [1] has taken a fork
+5014 Philo [1] is eating
+5012 Philo [3] has taken a fork
+5012 Philo [3] has taken a fork
+5012 Philo [3] is eating
+5513 Philo [2] is thinking
+5514 Philo [1] is sleeping
+5512 Philo [3] is sleeping
+5513 Philo [2] has taken a fork
+5505 Philo [4] is thinking
+5505 Philo [4] has taken a fork
+5505 Philo [4] has taken a fork
+5513 Philo [2] has taken a fork
+5505 Philo [4] is eating
+5513 Philo [2] is eating
+6012 Philo [3] is thinking
+6013 Philo [2] is sleeping
+6005 Philo [4] is sleeping
+6012 Philo [3] has taken a fork
+6014 Philo [1] is thinking
+6012 Philo [3] has taken a fork
+6012 Philo [3] is eating
+6014 Philo [1] has taken a fork
+6014 Philo [1] has taken a fork
+6014 Philo [1] is eating
+6505 Philo [4] is thinking
+6514 Philo [1] is sleeping
+6512 Philo [3] is sleeping
+6505 Philo [4] has taken a fork
+6505 Philo [4] has taken a fork
+6505 Philo [4] is eating
+6513 Philo [2] is thinking
+6524 Philo [2] has taken a fork
+6524 Philo [2] has taken a fork
+6524 Philo [2] is eating
+7012 Philo [3] is thinking
+7005 Philo [4] is sleeping
+7012 Philo [3] has taken a fork
+7014 Philo [1] is thinking
+7024 Philo [2] is sleeping
+7023 Philo [3] has taken a fork
+7023 Philo [3] is eating
+7025 Philo [1] has taken a fork
+7025 Philo [1] has taken a fork
+7025 Philo [1] is eating
+7505 Philo [4] is thinking
+7524 Philo [2] is thinking
+7525 Philo [1] is sleeping
+7524 Philo [2] has taken a fork
+7523 Philo [3] is sleeping
+7516 Philo [4] has taken a fork
+7516 Philo [4] has taken a fork
+7516 Philo [4] is eating
+7524 Philo [2] has taken a fork
+7524 Philo [2] is eating
+8023 Philo [3] is thinking
+8016 Philo [4] is sleeping
+8023 Philo [3] has taken a fork
+8023 Philo [3] has taken a fork
+8023 Philo [3] is eating
+8025 Philo [1] is thinking
+8025 Philo [1] has taken a fork
+8025 Philo [1] has taken a fork
+8025 Philo [1] is eating
+8024 Philo [2] is sleeping
+8516 Philo [4] is thinking
+8525 Philo [1] is sleeping
+8524 Philo [2] is thinking
+8524 Philo [2] has taken a fork
+8523 Philo [3] is sleeping
+8524 Philo [2] has taken a fork
+8524 Philo [2] is eating
+8516 Philo [4] has taken a fork
+8516 Philo [4] has taken a fork
+8516 Philo [4] is eating
+9025 Philo [1] is thinking
+9024 Philo [2] is sleeping
+9025 Philo [1] has taken a fork
+9025 Philo [1] has taken a fork
+9025 Philo [1] is eating
+9016 Philo [4] is sleeping
+9023 Philo [3] is thinking
+9023 Philo [3] has taken a fork
+9023 Philo [3] has taken a fork
+9023 Philo [3] is eating
+9516 Philo [4] is thinking
+9523 Philo [3] is sleeping
+9516 Philo [4] has taken a fork
+9516 Philo [4] has taken a fork
+9516 Philo [4] is eating
+9525 Philo [1] is sleeping
+9524 Philo [2] is thinking
+9524 Philo [2] has taken a fork
+9524 Philo [2] has taken a fork
+9524 Philo [2] is eating
+10025 Philo [1] is thinking
+10024 Philo [2] is sleeping
+10016 Philo [4] is sleeping
+10025 Philo [1] has taken a fork
+10025 Philo [1] has taken a fork
+10025 Philo [1] is eating
+10023 Philo [3] is thinking
+10023 Philo [3] has taken a fork
+10023 Philo [3] has taken a fork
+10023 Philo [3] is eating
+10524 Philo [2] is thinking
+10523 Philo [3] is sleeping
+10516 Philo [4] is thinking
+10524 Philo [2] has taken a fork
+10524 Philo [2] has taken a fork
+10524 Philo [2] is eating
+10516 Philo [4] has taken a fork
+10516 Philo [4] has taken a fork
+10516 Philo [4] is eating
+10525 Philo [1] is sleeping
+11023 Philo [3] is thinking
+11024 Philo [2] is sleeping
+11023 Philo [3] has taken a fork
+11023 Philo [3] has taken a fork
+11023 Philo [3] is eating
+11016 Philo [4] is sleeping
+11025 Philo [1] is thinking
+11025 Philo [1] has taken a fork
+11025 Philo [1] has taken a fork
+11025 Philo [1] is eating
+11524 Philo [2] is thinking
+11523 Philo [3] is sleeping
+11524 Philo [2] has taken a fork
+11516 Philo [4] is thinking
+11524 Philo [2] has taken a fork
+11524 Philo [2] is eating
+11525 Philo [1] is sleeping
+11516 Philo [4] has taken a fork
+11516 Philo [4] has taken a fork
+11516 Philo [4] is eating
+12023 Philo [3] is thinking
+12024 Philo [2] is sleeping
+12025 Philo [1] is thinking
+12023 Philo [3] has taken a fork
+12023 Philo [3] has taken a fork
+12023 Philo [3] is eating
+12016 Philo [4] is sleeping
+12025 Philo [1] has taken a fork
+12025 Philo [1] has taken a fork
+12025 Philo [1] is eating
+12524 Philo [2] is thinking
+12525 Philo [1] is sleeping
+12523 Philo [3] is sleeping
+12524 Philo [2] has taken a fork
+12516 Philo [4] is thinking
+12516 Philo [4] has taken a fork
+12516 Philo [4] has taken a fork
+12516 Philo [4] is eating
+12524 Philo [2] has taken a fork
+12524 Philo [2] is eating
+13025 Philo [1] is thinking
+13016 Philo [4] is sleeping
+13024 Philo [2] is sleeping
+13025 Philo [1] has taken a fork
+13025 Philo [1] has taken a fork
+13025 Philo [1] is eating
+13023 Philo [3] is thinking
+13023 Philo [3] has taken a fork
+13023 Philo [3] has taken a fork
+13023 Philo [3] is eating
+13524 Philo [2] is thinking
+13525 Philo [1] is sleeping
+13523 Philo [3] is sleeping
+13524 Philo [2] has taken a fork
+13516 Philo [4] is thinking
+13524 Philo [2] has taken a fork
+13524 Philo [2] is eating
+13516 Philo [4] has taken a fork
+13516 Philo [4] has taken a fork
+13516 Philo [4] is eating
+14025 Philo [1] is thinking
+14016 Philo [4] is sleeping
+14025 Philo [1] has taken a fork
+14025 Philo [1] has taken a fork
+14025 Philo [1] is eating
+1
