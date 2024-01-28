@@ -12,13 +12,21 @@
 
 #include "philo.h"
 
-int	verif_dead(t_list *philo)
+int	verif_dead(t_list **philo)
 {
-	if (philo->start_eat + philo->t_die == get_time_of_the_day())
+	int	i;
+
+	i = 0;
+	while (i < philo[0]->nb_philo)
 	{
-		printf("%lld Philo [%d] is dead\n",
-			print_time(philo->start_thread), philo->index);
-		return (free_all(philo));
+		if (philo[i]->start_eat + philo[i]->t_die == get_time_of_the_day())
+		{
+			printf("%lld Philo [%d] is dead\n",
+				print_time(philo[i]->start_thread), philo[i]->index);
+			free_all(philo);
+			return (1);
+		}
+		i++;
 	}
 	return (0);
 }

@@ -20,8 +20,9 @@ SRCS 		= 	init_data.c \
 				ft_atoi.c \
 				get_time_of_the_day.c \
 				routine.c \
-				verif_dead.c \
-				print_info.c
+				monitor.c \
+				print_info.c \
+				free.c
 
 
 #Declarer Objet avec le groupe  

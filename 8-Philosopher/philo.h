@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: monsieurc <monsieurc@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:07:55 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/01/26 18:15:26 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/01/28 11:13:31 by monsieurc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,13 @@ typedef struct s_list
 }	t_list;
 
 //Initialisation
-void		init_data(t_list **philo, int argc, char **argv);
+void		init_data(t_list ***philo, int argc, char **argv);
 void		init_threads(t_list **philo, pthread_t *thread);
 void		*routine(void *arg);
 void		init_mutex_forks(t_list **philo);
 
+//Monitor
+void *monitor(void *arg);
 // Time
 long long	get_time_of_the_day(void);
 void		get_time(t_list **philo, int index);
@@ -59,7 +61,10 @@ void		print_eating(t_list *philo);
 void		print_sleeping(t_list *philo);
 void		print_thinking(t_list *philo);
 
-	// Utils
-	int ft_atoi(const char *str);
-int			verif_dead(t_list *philo);
+//Free
+void free_all(t_list **philo);
+
+// Utils
+int ft_atoi(const char *str);
+
 #endif
