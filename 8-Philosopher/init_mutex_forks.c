@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mutex_forks.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:52:39 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/01/29 13:06:57 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/01/29 16:56:37 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init_mutex_forks(t_list **philo)
 
 	forks = malloc(philo[0]->nb_philo * sizeof(pthread_mutex_t));
 	if (!forks)
-		return ;
+		return ; //TODO : free all
 	i = 0;
 	while (i < philo[0]->nb_philo)
 	{

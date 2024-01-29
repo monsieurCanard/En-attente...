@@ -19,9 +19,9 @@ SRCS 		= 	init_data.c \
 				init_mutex_forks.c \
 				ft_atoi.c \
 				get_time_of_the_day.c \
-				routine.c \
 				monitor.c \
 				print_info.c \
+				routine.c \
 				free.c \
 				init_mutex_ressource.c 
 

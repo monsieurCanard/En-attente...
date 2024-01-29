@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:58:22 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/01/29 14:32:48 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/01/29 18:31:31 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*routine(void *arg)
 	philo = (t_list *)arg;
 	while (1)
 	{
-		pthread_mutex_lock(&philo->is_dead_mutex);
+		pthread_mutex_lock(philo->is_dead_mutex);
 		if (philo->is_dead)
 		{
 			pthread_mutex_unlock(&philo->is_dead_mutex);
