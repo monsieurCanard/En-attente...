@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_thread.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monsieurc <monsieurc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:49:14 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/01/28 11:02:58 by monsieurc        ###   ########.fr       */
+/*   Updated: 2024/01/29 11:44:24 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ void	init_threads(t_list **philo, pthread_t *thread)
 		}
 		printf("Thread [%d] created\n", i);
 		index = pthread_create(&thread[i + philo[0]->nb_philo], NULL, monitor, (void *)philo[i]);
-        if (index)
-        {
-            printf("Error creating monitor thread\n");
-            exit (-1);
-        }
-        printf("Thread [%d] and monitor thread created\n", i);
+		if (index)
+		{
+			printf("Error creating monitor thread\n");
+			exit (-1);
+		}
+		printf("Thread [%d] and monitor thread created\n", i);
 		i++;
 	}
 	return ;

@@ -22,7 +22,8 @@ SRCS 		= 	init_data.c \
 				routine.c \
 				monitor.c \
 				print_info.c \
-				free.c
+				free.c \
+				init_mutex_ressource.c 
 
 
 #Declarer Objet avec le groupe  

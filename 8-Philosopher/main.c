@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: monsieurc <monsieurc@student.42.fr>        +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:05:23 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/01/28 11:46:30 by monsieurc        ###   ########.fr       */
+/*   Updated: 2024/01/29 14:35:12 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,16 @@ int	main(int argc, char **argv)
 	printf("Malloc done\n");
 	init_data(&philo, argc, argv);
 	init_mutex_forks(philo);
+	init_mutex_ressource(philo);
 	init_threads(philo, thread);
 	while (1)
 	{
 		while (i < philo[0]->nb_philo)
 		{
-			if (pthread_join(thread[i], NULL) == 0 )
+			if (pthread_join(thread[i], NULL) == 0)
 				free_all(philo);
-			else if (philo[i]->dead == 1)
-				free_all(philo);
+			// else if (philo[i]->dead == 1)
+			// 	free_all(philo);
 			i++;
 		}
 	}

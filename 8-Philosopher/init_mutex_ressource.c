@@ -1,46 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   init_mutex_ressource.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 18:27:10 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/01/29 13:11:42 by Monsieur_Ca      ###   ########.fr       */
+/*   Created: 2024/01/29 11:03:30 by Monsieur_Ca       #+#    #+#             */
+/*   Updated: 2024/01/29 14:44:02 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static void	free_philo(t_list *philo)
+void	init_mutex_ressource(t_list **philo)
 {
-	if (philo != NULL)
-	{
-		if (philo->fork_left != NULL)
-		{
-			pthread_mutex_destroy(philo->fork_left);
-			free(philo->fork_left);
-		}
-		if (philo->fork_right != NULL)
-		{
-			pthread_mutex_destroy(philo->fork_right);
-			free(philo->fork_right);
-		}
-		free(philo);
-	}
-}
-
-void	free_all(t_list **philo)
-{
-	int	i;
+	int					i;
 
 	i = 0;
 	while (i < philo[0]->nb_philo)
 	{
-		free_philo(philo[i]);
+		philo[i]->eat_mutex = malloc(sizeof(pthread_mutex_t));
+		if (!philo[i]->eat_mutex)
+			return ;
+		pthread_mutex_init(philo[i]->eat_mutex, NULL);
+		philo[i]->fork_right = malloc(sizeof(pthread_mutex_t));
+		if (!philo[i]->fork_right)
+			return ;
+		pthread_mutex_init(philo[i]->fork_right, NULL);
+		pthread_mutex_init(&philo[i]->is_dead_mutex, NULL);
 		i++;
 	}
-	free(philo);
-	pthread_exit(NULL);
-	exit (0);
+	return ;
 }
