@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:05:23 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/01/29 19:42:09 by anthony          ###   ########.fr       */
+/*   Updated: 2024/01/30 17:40:45 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ int	main(int argc, char **argv)
 	t_list			**philo;
 	pthread_t		*thread;
 	int				i;
+	int				j;
 	int				is_dead;
-	// pthread_mutex_t	fork_left;
-	// pthread_mutex_t	fork_right;
+
 	i = 0;
+	j = ft_atoi(argv[1]);
 	is_dead = 0;
 	if (argc < 5)
 		return (0);
@@ -30,22 +31,23 @@ int	main(int argc, char **argv)
 	thread = malloc(sizeof(pthread_t) * (ft_atoi(argv[1]) * 2));
 	if (!thread)
 		return (free(philo), 0);
-	printf("Malloc done\n");
-	init_data(&philo, argv, &is_dead);
+	init_data(&philo, argc, argv, &is_dead);
 	init_mutex_forks(philo);
-	init_mutex_ressource(philo, argv);
+	init_mutex_ressource(philo);
 	init_threads(philo, thread);
-	while (i < ft_atoi(argv[1]) * 2)
+	while(i < j)
 	{
-		if (pthread_join(thread[i], NULL) != 0)
+		if (pthread_join(thread[i], NULL))
 		{
-			write(1, "Error joining thread\n", 21);
+			printf("Error joining thread\n");
+			// handle error
 		}
-		if (pthread_join(thread[philo[0] -> nb_philo + i], NULL) != 0)
+		if (pthread_join(thread[i + philo[0]->nb_philo], NULL))
 		{
-			write(1, "Error joining monitor thread\n", 29);
+			printf("Error joining monitor thread\n");
+			// handle error
 		}
-		i++;	
+		i++;
 	}
 	// mister_free(philo);
 	return (0);

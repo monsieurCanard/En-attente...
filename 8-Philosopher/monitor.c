@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monitor.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:50:53 by monsieurc         #+#    #+#             */
-/*   Updated: 2024/01/29 19:35:01 by anthony          ###   ########.fr       */
+/*   Updated: 2024/01/30 19:19:23 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,27 +23,24 @@
 void	*monitor(void *arg)
 {
 	t_list		*philo;
-	long long	start_eat;
-	long long	time_to_die;
-	int			index;
 
 	philo = (t_list *)arg;
 	while (1)
 	{
-		pthread_mutex_lock(&philo->is_eating_mutex);
-		pthread_mutex_lock(&philo->time_to_die_mutex);
-		pthread_mutex_lock(&philo->index_mutex);		
-		if (philo->is_eating + philo->time_to_die == get_time_of_the_day())
-			break;
-		pthread_mutex_unlock(&philo->is_eating_mutex);
-		pthread_mutex_unlock(&philo->index_mutex);
-		pthread_mutex_unlock(&philo->time_to_die_mutex);
+		pthread_mutex_lock(philo->is_eating_mutex);
+		if (get_time_of_the_day() >= philo->end_eat)
+		{
+			pthread_mutex_unlock(philo->is_eating_mutex);
+			pthread_mutex_lock(philo->index_mutex);
+			printf("%lld Philo [%d] is dead\n",
+				print_time(philo->start_time), philo->index);
+			pthread_mutex_unlock(philo->index_mutex);
+			pthread_mutex_lock(philo->is_dead_mutex);
+			printf("is_dead_mutex = %d\n", *(philo->is_dead));
+			*(philo->is_dead) = 1;
+			pthread_mutex_unlock(philo->is_dead_mutex);
+			return (0);
+		}
+		pthread_mutex_unlock(philo->is_eating_mutex);
 	}
-	printf("%lld Philo [%d] is dead\n",
-				print_time(get_time_of_the_day(), philo->index));
-	pthread_mutex_lock(philo->is_dead_mutex);
-	philo->is_dead = 1;
-	pthread_mutex_unlock(philo->is_dead_mutex);
-	// philo_is_dead(philo);
-	return ;
 }
