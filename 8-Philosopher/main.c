@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:05:23 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/01/30 17:40:45 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/01/31 18:37:13 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,37 @@ int	main(int argc, char **argv)
 	int				i;
 	int				j;
 	int				is_dead;
+	void 			*retval;
 
-	i = 0;
+	i = -1;
+	verif_arg(argc, argv);
 	j = ft_atoi(argv[1]);
 	is_dead = 0;
 	if (argc < 5)
 		return (0);
-	philo = malloc(sizeof(t_list *) * ft_atoi(argv[1]));
-	if (!philo)
-		return (0);
+	if (j == 1)
+		pocket_philo(argv);
 	thread = malloc(sizeof(pthread_t) * (ft_atoi(argv[1]) * 2));
 	if (!thread)
 		return (free(philo), 0);
-	init_data(&philo, argc, argv, &is_dead);
-	init_mutex_forks(philo);
-	init_mutex_ressource(philo);
-	init_threads(philo, thread);
-	while(i < j)
+	(init_data(&philo, argc, argv, &is_dead), init_mutex_forks(philo));
+	(init_mutex_ressource(philo), init_threads(philo, thread));
+	i = -1;
+	while(++i < j)
 	{
-		if (pthread_join(thread[i], NULL))
-		{
-			printf("Error joining thread\n");
-			// handle error
-		}
-		if (pthread_join(thread[i + philo[0]->nb_philo], NULL))
-		{
-			printf("Error joining monitor thread\n");
-			// handle error
-		}
-		i++;
+		if (pthread_join(thread[i + philo[0]->nb_philo], &retval))
+    		printf("Error joining thread\n");
+		else if (retval != NULL)
+    		printf("Thread returned %d\n", *(int *)retval);
 	}
-	// mister_free(philo);
+	i = -1;
+	while(++i < j)
+	{
+		if (pthread_join(thread[i], &retval))
+    		printf("Error joining thread\n");
+		else if (retval != NULL)
+    		printf("Thread returned %d\n", *(int *)retval);
+	}
+	
 	return (0);
 }

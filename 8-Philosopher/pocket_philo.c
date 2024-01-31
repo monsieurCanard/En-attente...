@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   verif_dead.c                                       :+:      :+:    :+:   */
+/*   pocket_philo.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 15:27:39 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/01/31 18:30:31 by anthony          ###   ########.fr       */
+/*   Created: 2024/01/31 18:34:25 by anthony           #+#    #+#             */
+/*   Updated: 2024/01/31 18:35:15 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	verif_dead(t_list *philo)
+void    pocket_philo(char **argv)
 {
-		pthread_mutex_lock(philo->is_dead_mutex);
-		if (*philo->is_dead == 1)
-		{
-			pthread_mutex_unlock(philo->is_dead_mutex);
-			return (1);
-		}
-		pthread_mutex_unlock(philo->is_dead_mutex);
-		return (0);
+    usleep(atoi(argv[2]) * 1000);
+    printf("Philo [%d] is dead\n", 1);
+    exit(0);
 }
-

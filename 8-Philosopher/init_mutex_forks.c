@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mutex_forks.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:52:39 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/01/30 16:44:14 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/01/31 16:31:29 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	init_mutex_forks(t_list **philo)
 	while (i < philo[0]->nb_philo)
 	{
 		pthread_mutex_init(&forks[i], NULL);
-		printf("Fork [%d] created\n", i);
+		// printf("Fork [%d] created\n", i);
 		i++;
 	}
 	i = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:07:55 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/01/30 18:21:32 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/01/31 18:39:47 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,10 @@ void		print_eating(t_list *philo);
 void		print_sleeping(t_list *philo);
 void		print_thinking(t_list *philo);
 
+void    pocket_philo(char **argv);
 //Verif 
 int		verif_dead(t_list *philo);
+void    verif_arg(int argc, char **argv);
 
 //Free
 void		free_all(t_list **philo);
