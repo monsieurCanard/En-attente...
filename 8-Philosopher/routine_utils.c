@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   routine_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 15:18:52 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/02/01 12:00:10 by Monsieur_Ca      ###   ########.fr       */
+/*   Created: 2024/02/01 17:03:20 by Monsieur_Ca       #+#    #+#             */
+/*   Updated: 2024/02/01 17:06:59 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	*philo(void *arg)
+int	philo_is_eating(t_list *philo)
 {
-	t_list	*philo;
-
-	philo = (t_list *)arg;
-	while (1)
+	while (get_time_of_the_day() <= philo->end_eat)
 	{
-		philo->time_stamp = get_time_of_the_day();
-		printf("time = %lld\n", philo->time_stamp);
+		if (verif_dead(philo) == 1)
+		{
+			pthread_mutex_unlock(philo->fork_left);
+			pthread_mutex_unlock(philo->fork_right);
+			return (1);
+		}
 	}
-	return (NULL);
+	return (0);
 }

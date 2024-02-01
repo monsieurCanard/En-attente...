@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:07:55 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/01/31 18:39:47 by anthony          ###   ########.fr       */
+/*   Updated: 2024/02/01 17:09:41 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,13 @@ void		init_threads(t_list **philo, pthread_t *thread);
 void		*routine(void *arg);
 void		init_mutex_forks(t_list **philo);
 void		init_mutex_ressource(t_list **philo);
-void 		init_permission_fork(t_list **philo);
+void		init_mutex_ressource2(t_list **philo);
+void		init_mutex_ressource3(t_list **philo);
 
-	// Monitor
-void *monitor(void *arg);
+// Monitor
+void		*monitor(void *arg);
+void		waiting_end_thread(t_list **philo, pthread_t *thread);
+void		waiting_end_monitor(t_list **philo, pthread_t *thread);
 
 // Time
 long long	get_time_of_the_day(void);
@@ -73,15 +76,18 @@ void		print_eating(t_list *philo);
 void		print_sleeping(t_list *philo);
 void		print_thinking(t_list *philo);
 
-void    pocket_philo(char **argv);
+//Pocket
+void		pocket_philo(char **argv);
+
 //Verif 
-int		verif_dead(t_list *philo);
-void    verif_arg(int argc, char **argv);
+int			verif_dead(t_list *philo);
+void		verif_arg(int argc, char **argv);
 
 //Free
 void		free_all(t_list **philo);
+void		free_all_middle(t_list **philo, pthread_t *thread);
 
 // Utils
 int			ft_atoi(const char *str);
-
+int			philo_is_eating(t_list *philo);
 #endif
