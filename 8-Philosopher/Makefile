@@ -3,7 +3,9 @@ NAME = philo
 
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra -fsanitize=thread -g3 
+CFLAGS = -Wall -Werror -Wextra 
+
+#-fsanitize=thread
 
 GREEN        := \033[0;92m
 YELLOW        := \033[0;93m

@@ -6,7 +6,7 @@
 /*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:52:39 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/02/01 17:00:50 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/02/02 13:13:52 by Monsieur_Ca      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,5 @@ void	init_mutex_forks(t_list **philo)
 	}
 	return ;
 }
+// philo[0].mutex == forks 
+// &forks[0] == forks
