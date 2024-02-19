@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monitor.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:50:53 by monsieurc         #+#    #+#             */
-/*   Updated: 2024/02/01 12:05:18 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/02/19 10:34:36 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	verif_eat(t_list *philo)
 	{
 		pthread_mutex_unlock(philo->is_eating_mutex);
 		pthread_mutex_lock(philo->index_mutex);
-		printf("%lld Philo [%d] is dead\n",
+		printf("%lld %d died\n",
 			print_time(philo->start_time), philo->index);
 		pthread_mutex_unlock(philo->index_mutex);
 		pthread_mutex_lock(philo->is_dead_mutex);

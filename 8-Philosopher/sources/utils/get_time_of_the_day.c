@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_time_of_the_day.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 12:46:17 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/01/30 18:02:17 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/02/19 10:32:11 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

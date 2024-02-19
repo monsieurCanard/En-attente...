@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:07:55 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/02/02 14:47:10 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/02/19 12:12:45 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void		waiting_end_monitor(t_list **philo, pthread_t *thread);
 long long	get_time_of_the_day(void);
 void		get_time(t_list **philo, int index);
 long long	print_time(long long start_time);
+void		ft_usleep(int time);
 
 //Print
 void		print_forks(t_list *philo);
@@ -90,4 +91,5 @@ void		free_all_middle(t_list **philo, pthread_t *thread);
 // Utils
 int			ft_atoi(const char *str);
 int			philo_is_eating(t_list *philo);
+int			philo_is_sleeping(t_list *philo);
 #endif

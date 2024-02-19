@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pocket_philo.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:34:25 by anthony           #+#    #+#             */
-/*   Updated: 2024/02/01 17:30:30 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/02/19 12:12:33 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 void	pocket_philo(char **argv)
 {
 	usleep(ft_atoi(argv[2]) * 1000);
-	printf("Philo [%d] is dead\n", 1);
+	printf("%lld %d is dead\n", get_time_of_the_day(), 1);
 	exit(0);
 }

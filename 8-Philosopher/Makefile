@@ -1,68 +1,99 @@
 
-NAME = philo
+################
+##  COMPILE	  ##
+################
+
 
 CC = cc
+CFLAGS = -Wall -Wextra -Werror -g3
 
-CFLAGS = -Wall -Werror -Wextra 
+#################
+##   INCLUDE   ##
+#################
 
-#-fsanitize=thread
+INCLUDE_LIST	=	./includes/
 
-GREEN        := \033[0;92m
-YELLOW        := \033[0;93m
-BLUE        := \033[0;94m
-END_COLOR    := \033[0;39m
-
-#Les différents fichiers à compiler
-INC 		= 	push_swap.h
-
-SRCS 		= 	init_data.c \
-				main.c \
-				init_thread.c \
-				init_mutex_forks.c \
-				ft_atoi.c \
-				get_time_of_the_day.c \
-				monitor.c \
-				print_info.c \
-				routine.c \
-				free.c \
-				init_mutex_ressource.c \
-				verif_dead.c \
-				pocket_philo.c \
-				verif_arg.c \
-				waiting_end.c \
-				routine_utils.c
+INCLUDE			=	$(addprefix -I, $(INCLUDE_LIST))
 
 
-#Declarer Objet avec le groupe  
-OBJSOURCE = $(SRCS:.c=.o)
-OBJS = $(addprefix obj/, $(OBJSOURCE))
-#Création l'éxécutable 
-$(NAME): ${OBJS}
-		@${CC} ${CFLAGS} $(OBJS) -o $(NAME)
-		@echo "$(GREEN)Compiled $(NAME):)$(END_COLOR)"
+#################
+##   SOURCES   ##
+#################
+
+SRC_DIR				=	sources/
+
+SRC_UTILS_DIR		=	utils/
+
+SRC_UTILS_LIST		=	ft_atoi.c \
+						get_time_of_the_day.c \
+						print_info.c \
+						verif_arg.c \
+						verif_dead.c \
+						pocket_philo.c
+SRC_UTILS			=	$(addprefix $(SRC_UTILS_DIR), $(SRC_UTILS_LIST))
+
+SRC_LIST			=	free.c	\
+						init_data.c	\
+						init_mutex_forks.c	\
+						init_mutex_ressource.c	\
+						init_permission_fork.c	\
+						init_thread.c	\
+						main.c	\
+						monitor.c	\
+						philo.c	\
+						routine_utils.c	\
+						routine.c	\
+						waiting_end.c\
+						$(SRC_UTILS) 
+SRC					=	$(addprefix $(SRC_DIR), $(SRC_LIST))
+
+##################
+##   OBJ/NAME   ##
+##################
+
+NAME		=	philo
+
+OBJ_DIR		=	objects/
+OBJ_LIST	=	$(addprefix $(OBJ_DIR), $(SRC_LIST:.c=.o))
+
+#################
+##	 COLORS	   ##
+#################
+
+COLOR_RESET		=	\033[0m
+COLOR_GREEN		=	\033[32m
+COLOR_RED		=	\033[31m
+COLOR_BLUE		=	\033[34m
+
+#################
+##    RULES    ##
+#################
+
 
 
 all: $(NAME)
 
-obj/%.o: %.c
-		@mkdir -p obj
-		@$(CC) $(CFLAGS) -c -o $@ $<
-		@echo "$(BLUE)Compiled $<$(END_COLOR)"
-
-#Regle de nettoyage des fichiers objets 
-clean:	
-		@rm -rf obj
-		@echo "$(YELLOW)Removed object files.$(END_COLOR)"
-
-#Regle de nettoyage executable
-fclean:	clean
-		@rm -f $(NAME) 
-		@echo "$(YELLOW)Cleaned libraries and $(NAME) executable.$(END_COLOR)"
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)$(SRC_UTILS_DIR)
 
 
-re:	fclean all 
-	@echo "$(GREEN)Cleaned all and rebuilt $(NAME)$(END_COLOR)"
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(OBJ_DIR)
+	@echo "$(COLOR_BLUE)Compile $<$(COLOR_RESET)"
+	@$(CC) $(CFLAGS) $(INCLUDE) -MMD -c $< -o $@
 
+$(NAME): $(OBJ_LIST) 
+	@echo "$(COLOR_BLUE)Compile $(NAME)$(COLOR_RESET)"
+	@$(CC) $(CFLAGS) $(OBJ_LIST) -o $(NAME)
 
-#Eviter que meme si un fichier s'appelle clean, make executera la règle.
-.PHONY: re clean fclean bonus
+clean:
+	@echo "$(COLOR_RED)Delete objects$(COLOR_RESET)"
+	@rm -rf $(OBJ_DIR)
+
+fclean: clean
+	@echo "$(COLOR_RED)Delete $(NAME)$(COLOR_RESET)"
+	@rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re

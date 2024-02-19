@@ -3,70 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 11:58:22 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/02/07 12:53:52 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/02/19 11:44:22 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static int	eat_impair(t_list *philo)
+static int	eat(t_list *philo)
 {
 	if (verif_dead(philo) == 1)
 		return (1);
-	pthread_mutex_lock(philo->fork_right);
-	if (verif_dead(philo) == 1)
-	{
-		pthread_mutex_unlock(philo->fork_right);
-		return (1);
-	}
 	pthread_mutex_lock(philo->fork_left);
 	if (verif_dead(philo) == 1)
 	{
-		pthread_mutex_unlock(philo->fork_right);
 		pthread_mutex_unlock(philo->fork_left);
 		return (1);
 	}
+	pthread_mutex_lock(philo->fork_right);
 	(print_forks(philo), print_eating(philo));
 	pthread_mutex_lock(philo->is_eating_mutex);
 	philo->is_eating = get_time_of_the_day();
 	philo->end_eat = philo->is_eating + philo->t_eat;
 	pthread_mutex_unlock(philo->is_eating_mutex);
-	if (philo_is_eating(philo) == 1)
-		return (1);
-	pthread_mutex_unlock(philo->fork_right);
-	pthread_mutex_unlock(philo->fork_left);
-	return (0);
-}
-
-static int	eat_pair(t_list *philo)
-{
-	if (verif_dead(philo) == 1)
-		return (1);
-	pthread_mutex_lock(philo->fork_left);
-	if (verif_dead(philo) == 1)
-	{
-		pthread_mutex_unlock(philo->fork_left);
-		return (1);
-	}
-	pthread_mutex_lock(philo->fork_right);
+	philo_is_eating(philo);
 	if (verif_dead(philo) == 1)
 	{
 		pthread_mutex_unlock(philo->fork_left);
 		pthread_mutex_unlock(philo->fork_right);
 		return (1);
 	}
-	(print_forks(philo), pthread_mutex_lock(philo->is_eating_mutex));
-	philo->is_eating = get_time_of_the_day();
-	philo->end_eat = philo->is_eating + philo->t_eat;
-	print_eating(philo);
-	pthread_mutex_unlock(philo->is_eating_mutex);
-	if (philo_is_eating(philo) == 1)
-		return (1);
-	pthread_mutex_unlock(philo->fork_left);
+	print_sleeping(philo);
 	pthread_mutex_unlock(philo->fork_right);
+	pthread_mutex_unlock(philo->fork_left);
 	return (0);
 }
 
@@ -76,26 +47,10 @@ static int	sleep_philo(t_list *philo)
 		return (1);
 	philo->start_sleep = get_time_of_the_day();
 	philo->end_sleep = philo->start_sleep + philo->t_sleep;
-	print_sleeping(philo);
-	usleep(philo->t_sleep * 1000);
+	ft_usleep(philo->t_sleep);
 	if (verif_dead(philo) == 1)
 		return (1);
 	print_thinking(philo);
-	return (0);
-}
-
-static int	dispatch_philo(t_list *philo)
-{
-	if (philo->index % 2 == 0)
-	{
-		if (eat_pair(philo) == 1)
-			return (1);
-	}
-	else
-	{
-		if (eat_impair(philo) == 1)
-			return (1);
-	}
 	return (0);
 }
 
@@ -105,10 +60,10 @@ void	*routine(void *arg)
 
 	philo = (t_list *)arg;
 	if (philo->index % 2 == 0)
-		usleep(philo->t_eat * 1000);
+		ft_usleep(philo->t_sleep / 10);
 	while (1)
 	{
-		if (dispatch_philo(philo) == 1)
+		if (eat(philo) == 1)
 			return (0);
 		pthread_mutex_lock(philo->nb_eat_mutex);
 		philo->nb_eat--;

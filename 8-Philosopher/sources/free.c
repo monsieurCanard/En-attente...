@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 18:27:10 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/02/02 14:59:38 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/02/19 11:23:50 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ static void	free_element_struct(t_list **philo)
 	free((*philo)[0].nb_eat_mutex);
 	free((*philo)[0].time_to_die_mutex);
 }
+
 void	free_all_middle(t_list **philo, pthread_t *thread)
 {
 	int	i;
@@ -74,9 +75,7 @@ void	free_all_middle(t_list **philo, pthread_t *thread)
 	free_element_struct(philo);
 	i = -1;
 	while (++i < nb_philo)
-	{
 		free(philo[i]);
-	}
 	free(philo);
 	exit (0);
 }

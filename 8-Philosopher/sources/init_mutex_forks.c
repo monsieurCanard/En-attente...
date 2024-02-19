@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mutex_forks.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Monsieur_Canard <Monsieur_Canard@studen    +#+  +:+       +#+        */
+/*   By: anthony <anthony@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 10:52:39 by Monsieur_Ca       #+#    #+#             */
-/*   Updated: 2024/02/02 13:13:52 by Monsieur_Ca      ###   ########.fr       */
+/*   Updated: 2024/02/19 11:21:35 by anthony          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ void	init_mutex_forks(t_list **philo)
 		if (i == philo[0]->nb_philo - 1)
 			philo[i]->fork_right = &forks[0];
 		else
+		{
 			philo[i]->fork_right = &forks[(i + 1)];
+		}
 		i++;
 	}
 	return ;
